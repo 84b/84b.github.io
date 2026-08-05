@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slop Factory — login complete</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+         max-width: 720px; margin: 60px auto; padding: 0 20px;
+         background: #fff; line-height: 1.6; color: #222; text-align: center; }
+  h1 { font-size: 1.5em; }
+  #code { font-family: Consolas, monospace; font-size: 0.95em;
+          background: #f2f2f5; border-radius: 10px; padding: 14px 18px;
+          margin: 18px auto; word-break: break-all; max-width: 640px;
+          cursor: pointer; border: 2px dashed #bbb; }
+  #code:hover { border-color: #666; }
+  #copied { color: #1a7f37; visibility: hidden; font-weight: 600; }
+  .err { color: #b3261e; }
+</style>
+</head>
+<body>
+<h1>Login received</h1>
+<p id="msg">Click the code below to copy it, then paste it into the
+terminal that's waiting for it.</p>
+<div id="code">…</div>
+<p id="copied">Copied — go back to the terminal.</p>
+<script>
+  const q = new URLSearchParams(location.search);
+  const code = q.get("code");
+  const err = q.get("error_description") || q.get("error");
+  const el = document.getElementById("code");
+  if (code) {
+    el.textContent = code;
+    el.onclick = () => navigator.clipboard.writeText(code).then(() =>
+      document.getElementById("copied").style.visibility = "visible");
+  } else {
+    document.getElementById("msg").textContent = "";
+    el.classList.add("err");
+    el.textContent = err ? ("Login failed: " + err)
+                         : "No code in the URL — start the login again.";
+  }
+</script>
+</body>
+</html>
