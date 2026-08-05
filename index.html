@@ -3,47 +3,103 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Slop Factory — personal video publishing tool</title>
+<title>Slop Factory — personal video production &amp; publishing tool</title>
 <style>
+  * { box-sizing: border-box; }
   body { font-family: -apple-system, Segoe UI, Roboto, sans-serif;
-         max-width: 720px; margin: 60px auto; padding: 0 20px; background: #fff;
-         line-height: 1.7; color: #222; }
-  h1 { font-size: 2em; margin-bottom: 0.2em; }
-  .tag { color: #666; font-size: 1.1em; margin-bottom: 2em; }
-  .card { background: #f6f6f8; border-radius: 12px; padding: 20px 24px;
-          margin: 16px 0; }
-  .card h2 { margin: 0 0 6px; font-size: 1.05em; }
+         margin: 0; background: #fff; color: #222; line-height: 1.65; }
+  nav { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #eee;
+        padding: 14px 24px; display: flex; gap: 22px; align-items: center;
+        flex-wrap: wrap; }
+  nav b { font-size: 1.05em; }
+  nav a { color: #444; text-decoration: none; font-size: 0.95em; }
+  nav a:hover { color: #000; }
+  main { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
+  h1 { font-size: 2.1em; margin: 0.4em 0 0.2em; }
+  h2 { font-size: 1.35em; margin-top: 2em; }
+  .tag { color: #666; font-size: 1.15em; margin-bottom: 1.6em; }
+  .card { background: #f6f6f8; border-radius: 12px; padding: 18px 22px;
+          margin: 14px 0; }
+  .card h3 { margin: 0 0 6px; font-size: 1.02em; }
   .card p { margin: 0; color: #444; }
-  footer { margin-top: 3em; color: #888; font-size: 0.9em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 14px; }
+  .step { display: flex; gap: 14px; margin: 18px 0; align-items: flex-start; }
+  .step .n { background: #111; color: #fff; border-radius: 50%;
+             width: 34px; height: 34px; display: flex; align-items: center;
+             justify-content: center; font-weight: 700; flex: none; }
+  img.shot { width: 100%; border-radius: 12px; border: 1px solid #e5e5e5;
+             margin: 10px 0 4px; }
+  .cap { color: #777; font-size: 0.88em; margin: 0 0 18px; }
+  footer { border-top: 1px solid #eee; margin-top: 40px; padding: 26px 20px;
+           color: #777; font-size: 0.92em; text-align: center; }
   footer a { color: #555; }
 </style>
 </head>
 <body>
-<h1>Slop Factory</h1>
-<p class="tag">A personal desktop tool for producing and publishing original
-short-form quiz videos.</p>
+<nav>
+  <b>Slop Factory</b>
+  <a href="#what">What it does</a>
+  <a href="#how">How it works</a>
+  <a href="#inside">Inside the tool</a>
+  <a href="terms.html">Terms of Service</a>
+  <a href="privacy.html">Privacy Policy</a>
+</nav>
+<main>
+  <h1>Slop Factory</h1>
+  <p class="tag">A personal desktop tool for producing and publishing
+  original short-form quiz videos to the operator's own TikTok account.</p>
 
-<div class="card">
-  <h2>What it does</h2>
-  <p>Slop Factory renders original quiz videos (voiceover, captions, music,
-  and graphics) on the operator's computer and uploads the finished videos
-  to the operator's own TikTok account using TikTok's official
-  Content Posting API.</p>
-</div>
+  <h2 id="what">What it does</h2>
+  <div class="grid">
+    <div class="card"><h3>Produces quiz videos</h3>
+      <p>Renders original 9:16 quiz videos — voiceover, synced captions,
+      question cards, countdowns, music and graphics — entirely on the
+      operator's computer.</p></div>
+    <div class="card"><h3>Publishes via official APIs</h3>
+      <p>Uploads finished videos to the operator's own TikTok account
+      using TikTok's official Content Posting API — as reviewable drafts,
+      or direct posts with caption and cover set.</p></div>
+    <div class="card"><h3>Tracks performance</h3>
+      <p>A private analytics dashboard reads the account's own follower
+      and per-video statistics to guide what gets made next.</p></div>
+    <div class="card"><h3>Single operator</h3>
+      <p>Runs locally (the dashboard lives at localhost), connects only to
+      accounts the operator owns via TikTok's official login, and is not
+      offered as a service to anyone else.</p></div>
+  </div>
 
-<div class="card">
-  <h2>Who it's for</h2>
-  <p>It is a single-operator tool: it runs locally, connects only to
-  accounts the operator owns via TikTok's official login, and is not
-  offered as a service to anyone else.</p>
-</div>
+  <h2 id="how">How it works</h2>
+  <div class="step"><div class="n">1</div><div>
+    <b>Create.</b> The operator picks a quiz format and topic; the tool
+    writes, fact-checks and renders a finished video with voiceover,
+    captions and on-screen question cards.</div></div>
+  <div class="step"><div class="n">2</div><div>
+    <b>Review.</b> Every video is previewed in the local dashboard's
+    library before anything is published.</div></div>
+  <div class="step"><div class="n">3</div><div>
+    <b>Publish.</b> After a one-time TikTok login (OAuth), videos upload
+    to the operator's own account through the official Content Posting
+    API.</div></div>
+  <div class="step"><div class="n">4</div><div>
+    <b>Learn.</b> The analytics view tracks views, likes and followers
+    over time so the next videos improve on the last.</div></div>
 
-<div class="card">
+  <h2 id="inside">Inside the tool</h2>
+  <img class="shot" src="img/analytics.png" alt="Analytics dashboard">
+  <p class="cap">The analytics view: account growth and per-video
+  performance, read via TikTok's official API for the operator's own
+  account.</p>
+  <img class="shot" src="img/publish.png" alt="Publishing dashboard">
+  <p class="cap">The publish view: the operator's own TikTok account,
+  connected through TikTok's official login, with the publishing queue
+  beside it.</p>
+
   <h2>Privacy in one line</h2>
-  <p>No analytics, no tracking, no third-party data — access tokens stay on
-  the operator's own machine.</p>
-</div>
-
+  <div class="card"><p>No analytics trackers, no third-party data, no
+  other users — access tokens stay on the operator's own machine. Full
+  details in the <a href="privacy.html">Privacy Policy</a>.</p></div>
+</main>
 <footer>
   <a href="terms.html">Terms of Service</a> ·
   <a href="privacy.html">Privacy Policy</a> ·
