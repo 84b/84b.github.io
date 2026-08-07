@@ -2,42 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Slop Factory — personal video production &amp; publishing tool</title>
 <style>
   * { box-sizing: border-box; }
   body { font-family: -apple-system, Segoe UI, Roboto, sans-serif;
-         margin: 0; background: #fff; color: #222; line-height: 1.65; }
-  nav { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #eee;
-        padding: 14px 24px; display: flex; gap: 22px; align-items: center;
-        flex-wrap: wrap; }
-  nav b { font-size: 1.05em; }
-  nav a { color: #444; text-decoration: none; font-size: 0.95em; }
-  nav a:hover { color: #000; }
+         margin: 0; background: #0b0b12; color: #e8e8f0; line-height: 1.65; }
+  nav { position: sticky; top: 0; background: #0e0e16f2; backdrop-filter: blur(6px);
+        border-bottom: 1px solid #23233a;
+        padding: 12px 24px; display: flex; gap: 20px; align-items: center;
+        flex-wrap: wrap; z-index: 5; }
+  nav b { font-size: 1.05em; color: #fff; }
+  nav a { color: #9aa; text-decoration: none; font-size: 0.95em; }
+  nav a:hover { color: #4ee1ff; }
   main { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
-  h1 { font-size: 2.1em; margin: 0.4em 0 0.2em; }
-  h2 { font-size: 1.35em; margin-top: 2em; }
-  .tag { color: #666; font-size: 1.15em; margin-bottom: 1.6em; }
-  .card { background: #f6f6f8; border-radius: 12px; padding: 18px 22px;
-          margin: 14px 0; }
-  .card h3 { margin: 0 0 6px; font-size: 1.02em; }
-  .card p { margin: 0; color: #444; }
+  h1 { font-size: 2.2em; margin: 0.35em 0 0.15em;
+       background: linear-gradient(90deg, #4ee1ff, #b26bff, #ff4ecd);
+       -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2 { font-size: 1.35em; margin-top: 2em; color: #fff; }
+  .tag { color: #9aa0b8; font-size: 1.15em; margin-bottom: 1.6em; }
+  .card { background: #14141f; border: 1px solid #262640; border-radius: 14px;
+          padding: 18px 22px; margin: 14px 0; }
+  .card h3 { margin: 0 0 6px; font-size: 1.02em; color: #4ee1ff; }
+  .card p { margin: 0; color: #b8bcd0; }
+  .card a { color: #ff4ecd; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
           gap: 14px; }
   .step { display: flex; gap: 14px; margin: 18px 0; align-items: flex-start; }
-  .step .n { background: #111; color: #fff; border-radius: 50%;
-             width: 34px; height: 34px; display: flex; align-items: center;
-             justify-content: center; font-weight: 700; flex: none; }
-  img.shot { width: 100%; border-radius: 12px; border: 1px solid #e5e5e5;
+  .step .n { background: linear-gradient(135deg, #4ee1ff, #ff4ecd); color: #0b0b12;
+             border-radius: 50%; width: 34px; height: 34px; display: flex;
+             align-items: center; justify-content: center; font-weight: 800;
+             flex: none; }
+  .step div b { color: #fff; }
+  img.shot { width: 100%; border-radius: 12px; border: 1px solid #2c2c48;
              margin: 10px 0 4px; }
-  .cap { color: #777; font-size: 0.88em; margin: 0 0 18px; }
-  footer { border-top: 1px solid #eee; margin-top: 40px; padding: 26px 20px;
-           color: #777; font-size: 0.92em; text-align: center; }
-  footer a { color: #555; }
+  .cap { color: #8b8fa8; font-size: 0.88em; margin: 0 0 18px; }
+  footer { border-top: 1px solid #23233a; margin-top: 40px; padding: 26px 20px;
+           color: #8b8fa8; font-size: 0.92em; text-align: center; }
+  footer a { color: #4ee1ff; }
 </style>
 </head>
 <body>
 <nav>
+  <img src="img/logo.png" alt="Slop Factory logo" style="width:34px;height:34px;border-radius:50%">
   <b>Slop Factory</b>
   <a href="#what">What it does</a>
   <a href="#how">How it works</a>
@@ -46,6 +54,7 @@
   <a href="privacy.html">Privacy Policy</a>
 </nav>
 <main>
+  <img src="img/logo.png" alt="Slop Factory" style="width:96px;height:96px;border-radius:50%;margin-top:8px">
   <h1>Slop Factory</h1>
   <p class="tag">A personal desktop tool for producing and publishing
   original short-form quiz videos to the operator's own TikTok account.</p>
